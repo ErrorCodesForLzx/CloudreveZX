@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_app_title"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#E8EEFD"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_user_info"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
+
+            app:srcCompat="@drawable/ic_icon_user_icon" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cloudreve"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Develop by 雷智翔" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_global_settings"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="16dp"
+            app:srcCompat="@drawable/ic_icon_settings" />
+    </LinearLayout>
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tl_filter_choose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#E8EEFB">
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/ti_filter_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全部" />
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/ti_filter_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_net_video"
+            android:text="视频" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/ti_filter_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_net_jpg"
+            android:text="图片" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/ti_filter_audio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_icon_file_audio"
+            android:text="音频" />
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/ti_filter_document"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ic_net_txt"
+            android:text="文档" />
+    </com.google.android.material.tabs.TabLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_path_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_bk_main_card_all"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/iv_back_path"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:foreground="?selectableItemBackground"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_icon_back_last_dir" />
+
+        <LinearLayout
+            android:id="@+id/ll_path"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_bk_show_dir_all"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                app:srcCompat="@drawable/ic_ic_icon_folder" />
+
+            <TextView
+                android:id="@+id/tv_dir_path"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="/" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/sr_refresh_file_tree"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_file_tree"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            app:fab_addButtonColorNormal="@color/theme_main_color_light"
+            android:layout_margin="25dp"
+            >
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_menu_upload_file"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_size="mini"
+                app:fab_title="上传文件"
+                app:fab_icon="@drawable/ic_icon_action_upload"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                />
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_menu_create_dir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_size="mini"
+                app:fab_title="新建目录"
+                app:fab_icon="@drawable/ic_icon_action_create_dir"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                />
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+
+    </FrameLayout>
+    <!--    显示一个悬浮按钮，用于文件的上传-->
+
+
+
+
+
+</LinearLayout>

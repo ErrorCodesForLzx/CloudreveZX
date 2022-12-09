@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="theme_main_color">#3f51b5</color>
+    <color name="theme_main_color_light">#5B6FDC</color>
+    <color name="theme_main_disable_color">#C6C6C6</color>
+
+
+    <color name="theme_file_filter_all_title">#E8EEFD</color>
+    <color name="theme_file_filter_all_tab">#E8EEFB</color>
+    <color name="theme_file_filter_video_title">#EEE8FD</color>
+    <color name="theme_file_filter_video_tab">#EEE8FB</color>
+    <color name="theme_file_filter_image_title">#E8FDFD</color>
+    <color name="theme_file_filter_image_tab">#E8FDFB</color>
+    <color name="theme_file_filter_audio_title">#FCFDED</color>
+    <color name="theme_file_filter_audio_tab">#FCFDEB</color>
+    <color name="theme_file_filter_doc_title">#EDFBFD</color>
+    <color name="theme_file_filter_doc_tab">#EDFBFB</color>
+</resources>
