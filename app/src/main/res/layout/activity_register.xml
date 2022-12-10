@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/shape_icon_red_circle"
+                android:background="@drawable/shape_icon_green_circle"
                 android:padding="12dp">
 
                 <ImageView
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="登录到Cloudreve"
+                android:text="注册用户"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -63,6 +63,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <EditText
                     android:id="@+id/et_auth_email"
                     android:layout_width="match_parent"
@@ -70,13 +71,15 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="40dp"
                     android:layout_marginRight="15dp"
-                    android:inputType="textEmailAddress"
-                    android:hint="电子邮箱" />
+                    android:hint="电子邮箱"
+                    android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <EditText
                     android:id="@+id/et_auth_password"
                     android:layout_width="match_parent"
@@ -84,10 +87,23 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
-                    android:inputType="textPassword"
-                    android:hint="通行证密码" />
+                    android:hint="通行证密码"
+                    android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <EditText
+                    android:id="@+id/et_auth_repeat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:hint="重复密码"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:id="@+id/ll_forget_captcha_module"
@@ -97,17 +113,19 @@
                 android:layout_marginRight="15dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:text="人机验证："/>
+                    android:text="人机验证："
+                    android:textSize="16sp" />
+
                 <EditText
                     android:id="@+id/et_auth_captcha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="输入验证码"/>
+                    android:hint="输入验证码" />
 
                 <ImageView
                     android:id="@+id/iv_auth_captcha"
@@ -117,8 +135,11 @@
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/captcha" />
             </LinearLayout>
+
+
+
             <Button
-                android:id="@+id/btn_send_reset_email"
+                android:id="@+id/btn_authentication_register"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginLeft="15dp"
@@ -126,7 +147,7 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/shape_btn_general"
                 android:foreground="?android:selectableItemBackground"
-                android:text="登录"
+                android:text="注册"
                 android:textColor="@color/white" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -138,23 +159,15 @@
                 android:layout_marginBottom="10dp">
 
                 <TextView
-                    android:id="@+id/tv_forget_password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="忘记密码"
-                    android:textColor="@color/theme_main_color"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
                     android:id="@+id/tv_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="注册账户"
+                    android:text="登录账户"
                     android:textColor="@color/theme_main_color"
                     android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -172,5 +185,5 @@
         android:layout_marginTop="8dp"
         android:textColor="#C5C5C5"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
-         <!--雷智翔制作-->
+    <!--雷智翔制作-->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -117,7 +117,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="开启云上之旅吧"
+        android:text="开启云上之旅吧！"
         android:textSize="40sp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"

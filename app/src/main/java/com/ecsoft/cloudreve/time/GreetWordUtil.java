@@ -12,7 +12,7 @@ public class GreetWordUtil {
         if (hours >= 9 && hours <= 11){
             return "上午好";
         } else if (hours >= 12 && hours <= 13){
-            return "中文好";
+            return "中午好";
         } else if (hours >= 13 && hours <= 19){
             return "下午好";
         } else {

@@ -63,7 +63,8 @@ public class OpenScreenActivity extends AppCompatActivity {
                             .setNegativeButton("退出程序", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    finish();
+                                    //finish();
+                                    android.os.Process.killProcess(android.os.Process.myPid());
                                 }
                             })
                             .setCancelable(false)

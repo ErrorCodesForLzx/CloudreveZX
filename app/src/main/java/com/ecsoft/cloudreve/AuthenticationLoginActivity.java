@@ -77,6 +77,7 @@ public class AuthenticationLoginActivity extends AppCompatActivity {
                     break;
                 }
                 case HANDLER_LOGIN_SUCCESS:{
+
                     Toast.makeText(AuthenticationLoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(AuthenticationLoginActivity.this,MainActivity.class);
                     startActivity(intent);
@@ -113,13 +114,13 @@ public class AuthenticationLoginActivity extends AppCompatActivity {
     }
 
     private void initViewComponent(){
-        etAuthMail             = findViewById(R.id.et_dir_name);
+        etAuthMail             = findViewById(R.id.et_auth_email);
         etAuthPassword         = findViewById(R.id.et_auth_password);
         etAuthCaptcha          = findViewById(R.id.et_auth_captcha);
         ivAuthCaptcha          = findViewById(R.id.iv_auth_captcha);
-        btnAuthenticationLogin = findViewById(R.id.btn_authentication_login);
-        llLoginCaptchaModule   = findViewById(R.id.ll_login_captcha_module);
-        tvRegister             = findViewById(R.id.tv_register);
+        btnAuthenticationLogin = findViewById(R.id.btn_send_reset_email);
+        llLoginCaptchaModule   = findViewById(R.id.ll_forget_captcha_module);
+        tvRegister             = findViewById(R.id.tv_login);
         tvForgetPassword       = findViewById(R.id.tv_forget_password);
 
     }
@@ -157,6 +158,10 @@ public class AuthenticationLoginActivity extends AppCompatActivity {
             }
         });
         getConfigThread.start();
+        // 如果是跳转的话我们需要获取 email属性
+        if (getIntent().hasExtra("email")) {
+            etAuthMail.setText(getIntent().getStringExtra("email"));
+        }
     }
     private void initViewEvent(){
         btnAuthenticationLogin.setOnClickListener(new View.OnClickListener() {
@@ -231,6 +236,22 @@ public class AuthenticationLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 refreshCaptchaCode();
+            }
+        });
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AuthenticationLoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        tvForgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AuthenticationLoginActivity.this,ForgetPasswordActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

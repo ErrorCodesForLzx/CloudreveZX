@@ -19,6 +19,8 @@ public class NetworkTrafficRouter {
     public static final String network_file_tree_filter_doc   = "/api/v3/file/search/doc%2Finternal";
     public static final String network_file_create_dir        = "/api/v3/directory"; // PUT METHOD;
     public static final String network_share_file             = "/api/v3/share";
+    public static final String network_reg_user               = "/api/v3/user";
+    public static final String network_forget_password        = "/api/v3/user/reset";
 
 
 }

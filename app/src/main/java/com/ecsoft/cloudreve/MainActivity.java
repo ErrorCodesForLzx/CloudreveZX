@@ -3,26 +3,20 @@ package com.ecsoft.cloudreve;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.IBinder;
 import android.os.Message;
-import android.text.Editable;
-import android.text.InputFilter;
 import android.util.ArrayMap;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -43,7 +37,6 @@ import com.ecsoft.cloudreve.database.DbSettingsService;
 import com.ecsoft.cloudreve.network.config.NetworkTrafficRouter;
 import com.ecsoft.cloudreve.network.config.NetworkTrafficUrlBuilder;
 import com.ecsoft.cloudreve.network.util.OKHTTPUtil;
-import com.ecsoft.cloudreve.service.CloudDownloadService;
 import com.ecsoft.cloudreve.storage.FileStorageUtil;
 import com.ecsoft.cloudreve.storage.entity.FileSizePO;
 import com.ecsoft.cloudreve.time.GreetWordUtil;
@@ -88,7 +81,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView dialog_tvGoodSentence;
     private TextView dialog_tvTitle;
     private TextView dialog_tvUserStorage;
+    private ImageView dialog_ivSettings;
+    private Button dialog_btnLogout;
     private ProgressBar dialog_pbStorage;
+    private ConstraintLayout clAboutMe;
     // 选项卡定义
     private TabLayout tlFilterChoose;
     private TabItem tbFilterAll;
@@ -100,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout llAppTitle;
     private LinearLayout llPath;
     private FloatingActionButton fabMenuCreateDir;
+    private FloatingActionButton fabMenuUploadFile;
 
 
     private Handler handler = new Handler(new Handler.Callback() {
@@ -280,6 +277,7 @@ public class MainActivity extends AppCompatActivity {
         llAppTitle = findViewById(R.id.ll_app_title);
         llPath = findViewById(R.id.ll_path);
         fabMenuCreateDir = findViewById(R.id.fab_menu_create_dir);
+        fabMenuUploadFile = findViewById(R.id.fab_menu_upload_file);
 
     }
 
@@ -403,7 +401,7 @@ public class MainActivity extends AppCompatActivity {
                         .setNegativeButton("取消", null);
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        EditText etDirName = dialogView.findViewById(R.id.et_dir_name);
+                        EditText etDirName = dialogView.findViewById(R.id.et_auth_email);
                         String dirName = String.valueOf(etDirName.getText());
                         if (!dirName.isEmpty()){
                             String cookies = GlobalRunningConfiguration.authentication_cookie_token;
@@ -451,6 +449,12 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 builder.show();
+            }
+        });
+        fabMenuUploadFile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "对不起，作者正在极力兼容库中...", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -520,6 +524,9 @@ public class MainActivity extends AppCompatActivity {
         dialog_tvTitle = inflatedView.findViewById(R.id.dialog_tv_title);
         dialog_tvUserStorage = inflatedView.findViewById(R.id.tv_user_storage);
         dialog_pbStorage = inflatedView.findViewById(R.id.pb_storage);
+        clAboutMe = inflatedView.findViewById(R.id.cl_about_me);
+        dialog_ivSettings = inflatedView.findViewById(R.id.dialog_iv_settings);
+        dialog_btnLogout = inflatedView.findViewById(R.id.dialog_btn_logout);
 
         View vTouchCloseTip = inflatedView.findViewById(R.id.v_touch_close_tip); // 对话框关闭条
         dialog.setContentView(inflatedView); // 将对话框样式添加视图
@@ -566,7 +573,43 @@ public class MainActivity extends AppCompatActivity {
         dialogWindow.setAttributes(lp); // 将新设置的属性应用到窗口上
         dialog.show(); // 显示窗口
         // TODO: 这里执行绑定事件操作
-
+        clAboutMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,AboutMeActivity.class);
+                startActivity(intent);
+            }
+        });
+        dialog_ivSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,SettingsInfoActivity.class);
+                startActivity(intent);
+            }
+        });
+        dialog_btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("提示")
+                        .setMessage("您确定要安全退出登录吗？")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                DbSettingsService service = new DbSettingsService(MainActivity.this);
+                                service.setSettings("authentication_cookie_token","");
+                                GlobalRunningConfiguration.authentication_cookie_token = "";
+                                Intent intent = new Intent(MainActivity.this,AuthenticationLoginActivity.class);
+                                startActivity(intent);
+                                // 跳转到登录界面
+                                Toast.makeText(MainActivity.this, "用户已经安全退出登录！", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("取消",null)
+                        .setCancelable(false)
+                        .show();
+            }
+        });
         // TODO: 这里执行数据获取
         Thread getUserInfoThread = new Thread(new Runnable() {
             @Override
