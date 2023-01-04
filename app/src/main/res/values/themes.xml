@@ -1,0 +1,44 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Cloudreve" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/theme_main_color_light</item>
+        <item name="colorPrimaryVariant">@color/theme_main_color</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/theme_main_color_light</item>
+        <item name="colorSecondaryVariant">@color/theme_main_color</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <!--ShapeableImageView 圆角-->
+    <style name="RoundedStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="UserInfoDialog" parent="@android:style/Theme.Dialog">
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 浮于Activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- Dialog以外的区域模糊效果 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Dialog进入及退出动画 -->
+        <item name="android:windowAnimationStyle">@style/UserInfoDialogAnimation</item>
+    </style>
+    <!-- ActionSheet进出动画 -->
+    <style name="UserInfoDialogAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/user_info_dialog_in</item>
+        <item name="android:windowExitAnimation">@anim/user_info_dialog_out</item>
+    </style>
+</resources>

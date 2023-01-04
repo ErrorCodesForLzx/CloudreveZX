@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BuildActivity">
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cloudreve的默认端口号5212"
+        android:textColor="@color/theme_main_color"
+        app:layout_constraintStart_toStartOf="@+id/til_server_port"
+        app:layout_constraintTop_toBottomOf="@+id/til_server_port" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_server_addr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21">
+
+        <EditText
+            android:id="@+id/et_server_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="网盘服务器地址" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="仅需几步，"
+        android:textSize="35sp"
+        android:textColor="@color/theme_main_color"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="便能开启您的私人云上之旅"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        android:textColor="@color/theme_main_color_light"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_server_port"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23">
+
+        <EditText
+            android:id="@+id/et_server_port"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="端口号" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="后续地址和端口支持随意修改！"
+        android:textColor="@color/theme_main_color"
+        app:layout_constraintStart_toStartOf="@+id/textView25"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+    <Button
+        android:id="@+id/btn_enter_your_cloud_disk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:foreground="?android:selectableItemBackground"
+        android:background="@drawable/shape_btn_welcome_start"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="进入您的私人云盘"
+        android:textColor="@color/theme_main_color"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="如果未持有SSL证书的服务器，请使用http协议"
+        android:textColor="@color/theme_main_color"
+        app:layout_constraintStart_toStartOf="@+id/textView24"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="http(s)://cloud.example.com"
+        android:textColor="@color/theme_main_color"
+        app:layout_constraintStart_toStartOf="@+id/til_server_addr"
+        app:layout_constraintTop_toBottomOf="@+id/til_server_addr" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

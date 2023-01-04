@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_icon_office_preview_error" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="An error occurred"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="We're sorry, but for some reason we can't open this for you.
+"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:text="原因可能是您的服务器是采用IP地址形式的，或者您的服务器地址无法被Microsoft Office访问，请更改您的服务器地址为可被访问的域名即可正常预览！"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>

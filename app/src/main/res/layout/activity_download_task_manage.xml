@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DownloadTaskManageActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_icon_back" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:text="下载管理（BATA）"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="正在下载的任务"
+            android:textColor="@color/theme_main_color"
+            android:layout_margin="10dp"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/theme_main_color_light"
+            android:text="支持多任务下载哟~"/>
+    </LinearLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tl_filter_choose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/ti_filter_unfinished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未完成的下载" />
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/ti_filter_finished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下载完成" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_download_task"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

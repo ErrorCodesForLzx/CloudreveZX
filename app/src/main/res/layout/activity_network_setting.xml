@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NetworkSettingActivity">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_network_port"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView41">
+
+        <EditText
+            android:id="@+id/et_network_port"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="服务器连接端口" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_network_server"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+
+        <EditText
+            android:id="@+id/et_network_server"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="网盘服务器地址" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="http(s)://cloud.example.com"
+        android:textColor="@color/theme_main_color_light"
+        app:layout_constraintStart_toStartOf="@+id/til_network_server"
+        app:layout_constraintTop_toBottomOf="@+id/til_network_server" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="如果未持有SSL证书的服务器，请使用http协议"
+        android:textColor="@color/theme_main_color_light"
+        app:layout_constraintStart_toStartOf="@+id/textView40"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/theme_main_color_light"
+        android:text="Cloudreve的默认端口号5212"
+        app:layout_constraintStart_toStartOf="@+id/til_network_port"
+        app:layout_constraintTop_toBottomOf="@+id/til_network_port" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请保证服务器安全组放行相应端口"
+        android:textColor="@color/theme_main_color_light"
+        app:layout_constraintStart_toStartOf="@+id/textView42"
+        app:layout_constraintTop_toBottomOf="@+id/textView42" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EFEFEF"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+            app:srcCompat="@drawable/ic_icon_settings_network" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="网络设置"
+            android:textColor="@color/theme_main_color_light"
+            android:textSize="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The network task our life beauty"
+            android:textColor="@color/theme_main_color_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView37" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="取消"
+        android:foreground="?selectableItemBackground"
+        android:background="@drawable/shape_small_btn_outline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_apply"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/shape_small_btn"
+        android:textColor="@color/white"
+        android:text="设置"
+        android:foreground="?selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

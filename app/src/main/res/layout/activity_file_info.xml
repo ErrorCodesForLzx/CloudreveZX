@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FileInfoActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:padding="10dp"
+            app:srcCompat="@drawable/ic_icon_back" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:text="返回"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+
+            <ImageView
+                android:id="@+id/iv_info_action_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                app:srcCompat="@drawable/ic_icon_delete" />
+
+            <ImageView
+                android:id="@+id/iv_info_action_rename"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                android:padding="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                app:srcCompat="@drawable/ic_icon_rename" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="文件大小："
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_info_file_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000B"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_file_type_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_net_unkonow" />
+
+        <TextView
+            android:id="@+id/tv_info_img_file_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="(999x999)"
+            android:textColor="@color/theme_main_color_light"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_info_file_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_info_file_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_info_file_name" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+            <ImageView
+                android:id="@+id/iv_info_action_preview"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                app:srcCompat="@drawable/ic_icon_preview" />
+
+            <ImageView
+                android:id="@+id/iv_info_action_download"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                app:srcCompat="@drawable/ic_icon_download" />
+
+            <ImageView
+                android:id="@+id/iv_info_action_share"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                app:srcCompat="@drawable/ic_icon_share" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_info_img_file_size">
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上传时间："
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_info_file_create_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2020年00月00日 00:00"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_info_file_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="example.txt"
+            android:textColor="@color/theme_main_color"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_file_type_show" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最后修改："
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_info_file_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2020年00月00日 00:00"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="所在目录："
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_info_file_path"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

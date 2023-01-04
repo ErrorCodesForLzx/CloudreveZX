@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutMeActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_png_icon_cloudreve" />
+
+        <TextView
+            android:id="@+id/textView44"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="CloudreveZX"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+        <TextView
+            android:id="@+id/textView45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="发行版本：REL1.0.0.8530"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView44" />
+
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="雷智翔和他的小伙伴们开发"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView45" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_icon_back" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_bk_donation"
+        android:elevation="20dp"
+        android:layout_margin="20dp"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_icon_coffee" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="支持作者"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="（个人开发不易，你们的支持是我前进的动力）"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout10" />
+
+        <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="295dp"
+            android:layout_height="452dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView46"
+            android:src="@drawable/ic_donation_qr_code" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
