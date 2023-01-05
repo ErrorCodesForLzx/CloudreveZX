@@ -45,6 +45,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
     private static final int HANDLER_CAPTCHA_CODE_REFRESH_SUCCESS = 0x10001;
     private static final int HANDLER_REFRESH_CAPTCHA = 0x20001;
+
     private static final int HANDLER_NO_CAPTCHA = 0x30001;
     private static final int HANDLER_FORGET_SUCCESS = 0x40001;
     private static final int HANDLER_FORGET_FAILED = 0x40002;
@@ -125,7 +126,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     JSONObject dataJsonObj = responseConfigJsonObj.getJSONObject("data");
                     // 判断登录是否需要人机校验
                     if ((hasForgetCaptcha = dataJsonObj.getBoolean("forgetCaptcha"))) {
-                        refreshCaptchaCode(); // 刷新一次验证码
+                        handler.sendEmptyMessage(HANDLER_REFRESH_CAPTCHA);
                     } else {
                         handler.sendEmptyMessage(HANDLER_NO_CAPTCHA);
                     }
@@ -205,6 +206,13 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                 Intent intent = new Intent(ForgetPasswordActivity.this,AuthenticationLoginActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+        ivAuthCaptcha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 验证码被单击
+                refreshCaptchaCode();
             }
         });
 

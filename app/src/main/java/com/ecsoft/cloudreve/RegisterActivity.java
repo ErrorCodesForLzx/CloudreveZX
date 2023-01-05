@@ -171,7 +171,7 @@ public class RegisterActivity extends AppCompatActivity {
                 // 开始校验注册输入状态
                 // 校验是否输入完整
                 email = etAuthEmail.getText().toString();
-                password = etAuthEmail.getText().toString();
+                password = etAuthPassword.getText().toString();
                 repeatPwd = etAuthRepeat.getText().toString();
                 captcha = etAuthCaptcha.getText().toString();
                 if (hasRegCaptcha) {
@@ -184,54 +184,65 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 if (!email.equals("") && !password.equals("") && !repeatPwd.equals("")) {
 
-                    // 创建线程
-                    Thread registerUser = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            // 构建请求Json对象
-                            JSONObject requestJsonObj = new JSONObject();
-                            try {
+                    if (password.equals(repeatPwd)) {
+                        // 创建线程
+                        Thread registerUser = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // 构建请求Json对象
+                                JSONObject requestJsonObj = new JSONObject();
+                                try {
 
-                                requestJsonObj.put("Password", password);
-                                requestJsonObj.put("userName", email);
-                                // 如果服务器要求输入验证码，判断输入
-                                if (hasRegCaptcha) requestJsonObj.put("captchaCode", captcha);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            // 发送HTTP
-                            String responseText = OKHTTPUtil.sendPost(NetworkTrafficUrlBuilder.build(NetworkTrafficRouter.network_reg_user), new HashMap<>(), requestJsonObj, GlobalRunningConfiguration.authentication_cookie_token);
-                            JSONTokener tokener = new JSONTokener(responseText);
-                            try {
-                                JSONObject responseJsonObj = (JSONObject) tokener.nextValue();
-                                // 获取code
-                                int code = responseJsonObj.getInt("code");
-                                switch (code){
-                                    case 203:{
-                                        // 注册成功但是需要验证
-                                        handler.sendEmptyMessage(HANDLER_REG_MAIL_AUTH);
-                                        break;
-                                    }
-                                    case 0:{
-                                        // 直接注册成功
-                                        handler.sendEmptyMessage(HANDLER_REG_SUCCESS);
-                                        break;
-                                    }
-                                    default:{
-                                        // 验证码错误
-                                        Bundle data = new Bundle();
-                                        data.putString("msg",responseJsonObj.getString("msg"));
-                                        handler.sendEmptyMessage(HANDLER_REG_FAILED);
-                                        break;
-                                    }
+                                    requestJsonObj.put("Password", password);
+                                    requestJsonObj.put("userName", email);
+                                    // 如果服务器要求输入验证码，判断输入
+                                    if (hasRegCaptcha) requestJsonObj.put("captchaCode", captcha);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                                // 发送HTTP
+                                String responseText = OKHTTPUtil.sendPost(NetworkTrafficUrlBuilder.build(NetworkTrafficRouter.network_reg_user), new HashMap<>(), requestJsonObj, GlobalRunningConfiguration.authentication_cookie_token);
+                                JSONTokener tokener = new JSONTokener(responseText);
+                                try {
+                                    JSONObject responseJsonObj = (JSONObject) tokener.nextValue();
+                                    // 获取code
+                                    int code = responseJsonObj.getInt("code");
+                                    switch (code){
+                                        case 203:{
+                                            // 注册成功但是需要验证
+                                            handler.sendEmptyMessage(HANDLER_REG_MAIL_AUTH);
+                                            break;
+                                        }
+                                        case 0:{
+                                            // 直接注册成功
+                                            handler.sendEmptyMessage(HANDLER_REG_SUCCESS);
+                                            break;
+                                        }
+                                        default:{
+                                            // 验证码错误
+                                            Bundle data = new Bundle();
+                                            data.putString("msg",responseJsonObj.getString("msg"));
+                                            handler.sendEmptyMessage(HANDLER_REG_FAILED);
+                                            break;
+                                        }
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
 
-                        }
-                    });
-                    registerUser.start();
+                            }
+                        });
+                        registerUser.start();
+                    } else {
+                        new AlertDialog.Builder(RegisterActivity.this)
+                                .setTitle("提示")
+                                .setIcon(R.drawable.ic_icon_dialog_warning)
+                                .setMessage("两次密码不一致，请重新输入！")
+                                .setPositiveButton("知道了", null)
+                                .setCancelable(false)
+                                .show();
+                    }
+
                 } else {
                     new AlertDialog.Builder(RegisterActivity.this)
                             .setTitle("提示")
