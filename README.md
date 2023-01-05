@@ -1,12 +1,13 @@
 Choose your language： [English](README.en.md) | 简体中文
-# CloudreveZX APP note
+# CloudreveZX APP
 
-#### Introduce our app
-This is a usefull and opensource depends [cloudreve](https://github.com/cloudreve/Cloudreve) Android client,and cloudreve server is also opensource on Github.
-#### About ours 
-I'm a high school student.so,This is only my hobby,it's may be have some bugs.But you can tell to me,I will try me best to fix it.Please forgive me T_T.
-#### Contract ours
-This is my own contract(Please remark yourself identity):
-* **Twitter**(international)：@LeiZhiXiangtko
-* **Wechat**(China main mainland)： lzx6weixing
-* **QQ Number**(China main mainland): 514389135
+#### 软件介绍
+这是一个开源的依赖于[Cloudreve服务端](https://github.com/cloudreve/Cloudreve)的安卓客户端。Cloudreve 服务端同样也在Github开源。
+#### 关于我
+如果您有任何的建议或者bud可以创建issues给我，如果我看到了我会第一时间修复它。或者您也可以添加下面的联系方式。
+Issue提交地址：
+#### 联系我
+这是我的个人联系方式（请备注您的来源）
+* **推特**(国际化)：@LeiZhiXiangtko
+* **微信**(中国大陆)： lzx6weixing
+* **QQ**(中国大陆): 514389135
