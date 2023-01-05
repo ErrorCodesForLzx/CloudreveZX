@@ -1,5 +1,6 @@
 Choose your language： [English](README.en.md) | 简体中文
 # CloudreveZX APP
+![P](https://img.shields.io/badge/Website-lzxwb.top-green) ![P](https://img.shields.io/badge/Dev-active-blue) ![P](https://img.shields.io/badge/version-3%20relVersion-blue) ![P](https://img.shields.io/badge/last-version%201.1-critical) ![P](https://img.shields.io/badge/My-I'm%20a%20hight%20school%20student-critical)
 
 #### 软件介绍
 这是一个开源的依赖于[Cloudreve服务端](https://github.com/cloudreve/Cloudreve)的安卓客户端。Cloudreve 服务端同样也在Github开源。
